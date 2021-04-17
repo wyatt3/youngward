@@ -13,9 +13,12 @@ class CreatePagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('nav_pages', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
+            $table->string('route');
+            $table->integer('order');
         });
     }
 
@@ -26,6 +29,6 @@ class CreatePagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('nav_pages');
     }
 }
