@@ -5,7 +5,7 @@
 $white: #FFF;
 $black: #000;
 $primary: #006480;
-$secondary: #333;
+$secondary: #111;
 
 //Nav Bar Colors 
 $nav-text-light: rgba(255, 255, 255, 0.87);
@@ -17,21 +17,31 @@ $nav-text-dark-active: #49AAD4;
 body {color: $primary;margin: 0;font-family: 'Lato';background-color:black;}
 
 //Nav Styles
-.nav {display: flex;justify-content: space-between;position: sticky;top: 0;}
+.nav {display: flex;justify-content: space-between;position: sticky;top: 0;z-index: 999;padding-right: 25px;}
   .nav ul {list-style-type: none;margin: 0;padding: 0;}
   .nav ul li {display: inline-block;padding-top: 16px;}
-  .nav a {color: $white;}
+  .nav a {color: $white;font-size: 19px;}
+  .nav ul li a {font-size: 17px;font-weight: 300;}
   .nav a, .nav ul li a {text-decoration: none;padding: 16px 12px;}
 
+.nav-light {transition: 0.5s;}
 .nav-light ul li a {color: $nav-text-light;}
-  .nav-light ul li a:hover {color: $white;}
+  .nav-light ul li a:hover {color: $white;font-weight: 400;}
   .nav-light ul li a.active {color: $nav-text-light-active;font-weight: 700;}
-    
+  
+.nav-dark {transition: 0.5s;background-color: $secondary;}
 .nav-dark ul li a {color: $nav-text-dark;}
-  .nav-dark ul li a:hover {color: $nav-text-dark-active;}
+  .nav-dark ul li a:hover {color: $nav-text-dark-active;font-weight: 400;}
   .nav-dark ul li a.active {color: $nav-text-dark-active;font-weight: 700;}
 
 @media screen and (max-width: 600px) {
-  .nav {display: block;}
-  .nav ul li {display: block;}
+  .nav {display: block;background-color: $secondary;padding: 15px 0}
+  .nav ul {height: 0px;overflow: hidden;}
+    .nav ul li {display: block;}
+    .nav ul li a {color: $nav-text-dark;}
+    .nav ul li a:hover {color: $nav-text-dark-active;font-weight: 400;}
+    .nav ul li a.active {color: $nav-text-dark-active;font-weight: 700;}
 }
+
+//Header Styles
+.header-container {height: 300px;margin-top: -55px;display: flex;justify-content: center;align-items: center;background-color: $primary;color: $white;}

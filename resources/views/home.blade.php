@@ -1,8 +1,36 @@
 @extends('layouts.app')
 
 @section('title', 'Home')
+@section('header_content', 'Young Ward')
 
 @section('content')
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
+<div>Test</div>
 <div>Test</div>
 <div>Test</div>
 <div>Test</div>
