@@ -1,5 +1,6 @@
 //fonts
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 // General Colors
 $white: #FFF;
@@ -23,6 +24,7 @@ body {color: $primary;margin: 0;font-family: 'Lato';background-color:black;}
   .nav a {color: $white;font-size: 19px;}
   .nav ul li a {font-size: 17px;font-weight: 300;}
   .nav a, .nav ul li a {text-decoration: none;padding: 16px 12px;}
+  .mobile-menu-open {align-self: flex-end;}
 
 .nav-light {transition: 0.5s;}
 .nav-light ul li a {color: $nav-text-light;}

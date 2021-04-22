@@ -1,6 +1,8 @@
 <!DOCTYPE html>
   <head>
-    <title>{{ Config::get('app.name') }} - @yield('title')</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ config('app.name') }} - @yield('title')</title>
     <link rel="stylesheet" href="css/app.min.css">
   </head>
   <body>
