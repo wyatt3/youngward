@@ -20,15 +20,15 @@ class navPagesTableSeeder extends Seeder
         ]);
         $page->save();
         $page = new Page([
-            'name' => 'Home3',
-            'route' => 'index',
-            'order' => '3',
+            'name' => 'Organizations',
+            'route' => 'orgs',
+            'order' => '2',
         ]);
         $page->save();
         $page = new Page([
-            'name' => 'Home2',
-            'route' => 'notIndex',
-            'order' => '2',
+            'name' => 'Ward News',
+            'route' => 'news',
+            'order' => '3',
         ]);
         $page->save();
         

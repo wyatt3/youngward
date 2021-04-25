@@ -24,7 +24,7 @@ body {color: $primary;margin: 0;font-family: 'Lato';background-color:black;}
   .nav a {color: $white;font-size: 19px;}
   .nav ul li a {font-size: 17px;font-weight: 300;}
   .nav a, .nav ul li a {text-decoration: none;padding: 16px 12px;}
-  .mobile-menu-open {align-self: flex-end;}
+  .mobile-menu-open {position: absolute;right: 15px;color: #fff;display: none;}
 
 .nav-light {transition: 0.5s;}
 .nav-light ul li a {color: $nav-text-light;}
@@ -43,6 +43,7 @@ body {color: $primary;margin: 0;font-family: 'Lato';background-color:black;}
     .nav ul li a {color: $nav-text-dark;}
     .nav ul li a:hover {color: $nav-text-dark-active;font-weight: 400;}
     .nav ul li a.active {color: $nav-text-dark-active;font-weight: 700;}
+  .mobile-menu-open {display: inline-block;}
 }
 
 //Header Styles
