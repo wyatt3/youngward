@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 use App\NavPage as Page;
 
-class navPagesTableSeeder extends Seeder
+class NavPagesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

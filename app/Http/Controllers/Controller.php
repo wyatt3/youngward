@@ -14,4 +14,8 @@ class Controller extends BaseController
     public function getIndex() {
         return view('home');
     }
+
+    public function getAdminIndex() {
+        return view('admin.home');
+    }
 }
