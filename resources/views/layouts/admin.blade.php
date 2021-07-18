@@ -17,6 +17,7 @@
         <ul class="navbar-nav ml-auto">
           @if (Auth::user() ? Auth::user()->isAdmin() : '')
           <li class="nav-item"><a href="" class="nav-link">Media</a></li>
+          <li class="nav-item"><a href="" class="nav-link">Manage Organizations</a></li>
           @endif
 
           @if (Auth::user())

@@ -8,7 +8,7 @@
 <i class="material-icons mobile-menu-open" onclick="toggleMobileNav()">menu</i>
   <ul class="nav-links">
     @foreach($pages as $page)
-      <li><a class="{{ Request::routeIs($page->route) ? 'active' : ''}}" href="">{{ $page->name }}</a></li>
+      <li><a class="{{ Request::routeIs($page->route) ? 'active' : ''}}" {{ $page->isExternalPage() }} href="{{ $page->route ? route($page->route) : $page->url }}">{{ $page->name }}</a></li>
     @endforeach
   </ul>
 </div>

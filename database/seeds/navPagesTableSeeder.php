@@ -21,14 +21,26 @@ class NavPagesTableSeeder extends Seeder
         $page->save();
         $page = new Page([
             'name' => 'Organizations',
-            'route' => 'orgs',
+            'route' => '',
+            'order' => '3',
+        ]);
+        $page->save();
+        $page = new Page([
+            'name' => 'Ward Activities',
+            'route' => '',
+            'order' => '4',
+        ]);
+        $page->save();
+        $page = new Page([
+            'name' => 'Announcements',
+            'route' => '',
             'order' => '2',
         ]);
         $page->save();
         $page = new Page([
-            'name' => 'Ward News',
-            'route' => 'news',
-            'order' => '3',
+            'name' => 'ChurchofJesusChrist.org',
+            'url' => 'https://www.churchofjesuschrist.org',
+            'order' => '5',
         ]);
         $page->save();
         
