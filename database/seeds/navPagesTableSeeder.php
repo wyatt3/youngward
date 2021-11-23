@@ -39,7 +39,7 @@ class NavPagesTableSeeder extends Seeder
         $page->save();
         $page = new Page([
             'name' => 'ChurchofJesusChrist.org',
-            'url' => 'https://www.churchofjesuschrist.org',
+            'href' => 'https://www.churchofjesuschrist.org',
             'order' => '5',
         ]);
         $page->save();

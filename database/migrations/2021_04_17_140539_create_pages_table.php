@@ -18,7 +18,7 @@ class CreatePagesTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('route')->nullable();
-            $table->string('url')->nullable();
+            $table->string('href')->nullable();
             $table->integer('order');
         });
     }
