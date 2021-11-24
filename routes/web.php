@@ -18,8 +18,8 @@ Route::get('/', 'Controller@getIndex')->name('index');
 Route::get('organizations/{organization_id}', 'OrganizationController@getShow')->name('organization.show');
 
 Route::group(['prefix' => 'announcements'], function() {
-  Route::get('/', 'ActivityController@getIndex')->name('announcements');
-  Route::get('/past', 'ActivityController@getPast')->name('announcements.old');
+  Route::get('/', 'AnnouncementController@getIndex')->name('announcements');
+  Route::get('/past', 'AnnouncementController@getPast')->name('announcements.old');
 });
 
 Route::group(['prefix' => 'activities'], function() {
