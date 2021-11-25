@@ -33,7 +33,7 @@ class NavPagesTableSeeder extends Seeder
         $page->save();
         $page = new Page([
             'name' => 'Announcements',
-            'route' => '',
+            'route' => 'announcements',
             'order' => '2',
         ]);
         $page->save();
