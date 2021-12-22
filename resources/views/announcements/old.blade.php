@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'Announcements')
-@section('header_content', 'Announcements')
+@section('header_content', 'Past Announcements')
+@section('header_background', 'background styles')
 
 @section('content')
 

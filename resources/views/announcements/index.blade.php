@@ -5,11 +5,15 @@
 
 @section('content')
 
-  @foreach($announcements as $announcement)
+  <div class="announcements-container">
 
-    {{ $announcement->title }} {{ $announcement->content }}<br>
+      @foreach($announcements as $announcement)
 
-  @endforeach
+      {{ $announcement->title}}<br><br>
 
-  <a href="{{ route('announcements.old') }}">View Older</a>
+      @endforeach
+      
+      <a class="button" href="{{ route('announcements.old') }}">View Older Announcements</a>
+  
+  </div>
 @endsection
