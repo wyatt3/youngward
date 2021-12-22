@@ -1,6 +1,6 @@
 var navIsOpen = false;
-$(document).ready(navBarBackground());
-$(window).scroll(navBarBackground());
+$(document).ready(() => {navBarBackground();});
+$(window).scroll(() => {navBarBackground();});
 
 function navBarBackground() {
     if($(window).scrollTop() <= 35) {

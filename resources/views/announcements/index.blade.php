@@ -11,4 +11,5 @@
 
   @endforeach
 
+  <a href="{{ route('announcements.old') }}">View Older</a>
 @endsection
