@@ -7,6 +7,7 @@ $white: #FFF;
 $black: #000;
 $primary: #006480;
 $secondary: #111;
+$fine-print : #BBB;
 
 //Nav Bar Colors 
 $nav-text-light: rgba(255, 255, 255, 0.87);
@@ -24,7 +25,10 @@ $nav-text-dark-active: #49AAD4;
 // (_______)|/       |/     \|           \______/  \_/        (_)  |/       |/     \|
                                                                                   
 //General Styles
-body {color: $primary;margin: 0;font-family: 'Lato';}
+body {color: $primary;margin: 0;font-family: 'Lato';min-height: 100vh;display: flex;flex-direction: column;}
+footer {height: 100px;display: flex;flex-direction: column-reverse;padding: 25px;text-align: right;color: $fine-print;margin-top:auto;}
+.button {padding: 12px 20px;background-color: $primary;color: $white;text-decoration: none;border-radius: 5px;}
+.button:hover{background-color: darken($primary, 3%);}
 
 //Nav Styles
 .nav {display: flex;justify-content: space-between;position: sticky;top: 0;z-index: 999;padding-right: 25px;}
@@ -54,6 +58,7 @@ body {color: $primary;margin: 0;font-family: 'Lato';}
 
 //Announcements pages
 .announcements-container {padding: 25px 15%;}
+.view-older {display: block;width: 210px;margin: auto;}
 // END 0px - 374px
 
 //  ______   ______   _______  _______                         ___    _____    _____   _______          
@@ -93,7 +98,7 @@ body {color: $primary;margin: 0;font-family: 'Lato';}
 //  \_/      \_____/  \_____/ |/       |/     \|           \______/ \______/ \______/ |/       |/     \|
                                                                                                      
 @media screen and (min-width: 768px) {
-  
+  .view-older {margin: 10px 0 0 15px;}
 } // END 768px - 959px
 
 //   _____    ______  _______  _______                      __      ___  ______    _____   _______          
