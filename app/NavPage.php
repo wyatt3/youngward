@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class NavPage extends Model
 {
-    protected $fillable = ['name', 'route', 'url', 'order'];
+    protected $fillable = ['name', 'route', 'href', 'order'];
 
     public function isExternalPage() {
-        if($this->route == null && $this->url != null) {
+        if($this->route == null && $this->href != null) {
             return "target=_blank";
         }
     }
