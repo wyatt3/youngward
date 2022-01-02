@@ -27,7 +27,7 @@ $nav-text-dark-active: #49AAD4;
                                                                                   
 //General Styles
 body {color: $primary;margin: 0;font-family: 'Lato';min-height: 100vh;display: flex;flex-direction: column;}
-footer {height: 100px;display: flex;flex-direction: column-reverse;padding: 25px;text-align: right;color: $fine-print;margin-top:auto;}
+footer {height: 100px;display: flex;align-items: flex-end;justify-content: space-between;padding: 25px;text-align: right;color: $fine-print;margin-top:auto;}
 .button {padding: 12px 20px;background-color: $primary;color: $white;text-decoration: none;border-radius: 5px;}
 .button:hover{background-color: darken($primary, 3%);}
 
@@ -53,6 +53,9 @@ footer {height: 100px;display: flex;flex-direction: column-reverse;padding: 25px
 .nav-background {height: 100%;width: 100%;position: fixed;transition: 0.5s;background-color: rgba(0, 0, 0, 0.5);display: none;}
 .nav-background-fade-in {visibility: visible;opacity: 1;transition: visibility 0s linear 0ms, opacity 300ms;}
 .nav-background-fade-out {visibility: hidden;opacity: 0;transition: visibility 0s linear 300ms, opacity 300ms;}
+
+.admin-link {color: $fine-print;text-decoration: none;}
+.admin-link:hover {text-decoration: underline;}
 
 //Header Styles
 .header-container {height: 300px;margin-top: -55px;display: flex;justify-content: center;align-items: center;background-color: $primary;color: $white;}
