@@ -30,27 +30,28 @@ body {color: $primary;margin: 0;font-family: 'Lato';min-height: 100vh;display: f
 footer {height: 100px;display: flex;align-items: flex-end;justify-content: space-between;padding: 25px;text-align: right;color: $fine-print;margin-top:auto;}
 .button {padding: 12px 20px;background-color: $primary;color: $white;text-decoration: none;border-radius: 5px;}
 .button:hover{background-color: darken($primary, 3%);}
+button {cursor: pointer;background: none;border: none;}
 
 //Nav Styles
-.nav {display: flex;justify-content: space-between;position: sticky;top: 0;z-index: 999;padding-right: 25px;}
-  .nav ul {list-style-type: none;margin: 0;padding: 0;}
-  .nav ul li {display: inline-block;padding-top: 16px;}
+.nav {display: block;padding: 15px 0;position: sticky;top: 0;z-index: 999;min-height: 25px;}
+  .nav ul {transition: 0.5s;overflow: hidden;height: 0px;list-style-type: none;margin: 0;padding: 0;}
+  .nav ul li {display: block;padding-top: 16px;}
   .nav a {color: $white;font-size: 19px;}
   .nav ul li a {font-size: 17px;font-weight: 300;}
   .nav a, .nav ul li a {text-decoration: none;padding: 16px 12px;}
-  .mobile-menu-open {position: absolute;right: 15px;color: #fff;display: none;}
+  .mobile-menu-open {position: absolute;right: 15px;color: #fff;}
 
-.nav-light {transition: 0.5s;}
+.nav-light {transition: 0.5s;background-color: $secondary;}
 .nav-light ul li a {color: $nav-text-light;}
   .nav-light ul li a:hover {color: $white;font-weight: 400;}
-  .nav-light ul li a.active {color: $nav-text-light-active;font-weight: 700;}
+  .nav-light ul li a.active {color: $nav-text-dark-active;font-weight: 700;}
   
 .nav-dark {transition: 0.5s;background-color: $secondary;}
 .nav-dark ul li a {color: $nav-text-dark;}
   .nav-dark ul li a:hover {color: $nav-text-dark-active;font-weight: 400;}
   .nav-dark ul li a.active {color: $nav-text-dark-active;font-weight: 700;}
 
-.nav-background {height: 100%;width: 100%;position: fixed;transition: 0.5s;background-color: rgba(0, 0, 0, 0.5);display: none;}
+.nav-background {height: 100%;width: 100%;position: fixed;transition: 0.5s;background-color: rgba(0, 0, 0, 0.5);display: block;}
 .nav-background-fade-in {visibility: visible;opacity: 1;transition: visibility 0s linear 0ms, opacity 300ms;}
 .nav-background-fade-out {visibility: hidden;opacity: 0;transition: visibility 0s linear 300ms, opacity 300ms;}
 
@@ -58,7 +59,7 @@ footer {height: 100px;display: flex;align-items: flex-end;justify-content: space
 .admin-link:hover {text-decoration: underline;}
 
 //Header Styles
-.header-container {height: 300px;margin-top: -55px;display: flex;justify-content: center;align-items: center;background-color: $primary;color: $white;}
+.header-container {height: 300px;margin-top: 0;display: flex;justify-content: center;align-items: center;background-color: $primary;color: $white;}
 
 //Announcements pages
 .announcements-container {padding: 25px 15%;}
@@ -106,6 +107,15 @@ footer {height: 100px;display: flex;align-items: flex-end;justify-content: space
                                                                                                      
 @media screen and (min-width: 768px) {
   .view-older {margin: 10px 0 0 15px;}
+
+  .nav {display: flex;justify-content: space-between;padding: 0 25px 0 0;}
+  .nav ul {height: auto !important;}
+    .nav ul li {display: inline-block;}
+  .nav-light {background-color: rgba(0, 0, 0, 0);}
+  .nav-light ul li a.active {color: $nav-text-light-active;}
+  .mobile-menu-open {display: none;}
+  .header-container {margin-top: -55px;}
+  .mobile-menu-open {display: none;}
 } // END 768px - 959px
 
 //   _____    ______  _______  _______                      __      ___  ______    _____   _______          
@@ -133,16 +143,3 @@ footer {height: 100px;display: flex;align-items: flex-end;justify-content: space
 @media screen and (min-width: 1440px) {
   
 } // END 1440px +
-
-//Nav styles from before I implemented the better css practices, didn't rewrite because I'm lazy and I have a deadline to meet
-@media screen and (max-width: 768px) {
-  .nav {display: block;background-color: $secondary;padding: 15px 0;height:25px;}
-  .nav ul {transition: 0.5s;overflow: hidden;height: 0px;}
-    .nav ul li {display: block;}
-    .nav ul li a {color: $nav-text-dark;}
-    .nav ul li a:hover {color: $nav-text-dark-active;font-weight: 400;}
-    .nav ul li a.active {color: $nav-text-dark-active;font-weight: 700;}
-  .mobile-menu-open {display: inline-block;}
-  .nav-background {display: block;}
-  .header-container {margin-top: 0;}
-}

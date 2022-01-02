@@ -5,7 +5,7 @@
 ?>
 <div class="nav nav-light">
 <a href="{{ route('index') }}">{{ Config::get('app.name') }}</a>
-<i class="material-icons mobile-menu-open" onclick="toggleMobileNav()">menu</i>
+<button class="material-icons mobile-menu-open" onclick="toggleMobileNav()">menu</button>
   <ul class="nav-links">
     @foreach($pages as $page)
       <li><a class="{{ ((Request::is($page->route) || Request::is($page->route . '/*')) && $page->route) ? 'active' : '' }}" {{ $page->isExternalPage() }} href="{{ $page->route ? route($page->route) : $page->href }}">{{ $page->name }}</a></li>
