@@ -12,4 +12,4 @@
     @endforeach
   </ul>
 </div>
-<div class="nav-background nav-background-fade-out"></div>
+<div class="nav-background nav-background-fade-out" onclick="toggleMobileNav()"></div>
