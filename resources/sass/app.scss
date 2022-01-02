@@ -7,7 +7,8 @@ $white: #FFF;
 $black: #000;
 $primary: #006480;
 $secondary: #111;
-$fine-print : #BBB;
+$fine-print: #BBB;
+$post-divider: #DDD;
 
 //Nav Bar Colors 
 $nav-text-light: rgba(255, 255, 255, 0.87);
@@ -58,7 +59,10 @@ footer {height: 100px;display: flex;flex-direction: column-reverse;padding: 25px
 
 //Announcements pages
 .announcements-container {padding: 25px 15%;}
+.announcement-title {margin: 0;}
+.announcement-date {margin: 3px 0;font-size: 14px;color: $fine-print;}
 .view-older {display: block;width: 210px;margin: auto;}
+.post-divider {border-bottom: solid 1px $post-divider;margin: 25px 0;}
 // END 0px - 374px
 
 //  ______   ______   _______  _______                         ___    _____    _____   _______          
