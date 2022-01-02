@@ -133,7 +133,7 @@ footer {height: 100px;display: flex;flex-direction: column-reverse;padding: 25px
 
 //Nav styles from before I implemented the better css practices, didn't rewrite because I'm lazy and I have a deadline to meet
 @media screen and (max-width: 768px) {
-  .nav {display: block;background-color: $secondary;padding: 15px 0;}
+  .nav {display: block;background-color: $secondary;padding: 15px 0;height:25px;}
   .nav ul {transition: 0.5s;overflow: hidden;height: 0px;}
     .nav ul li {display: block;}
     .nav ul li a {color: $nav-text-dark;}
@@ -141,4 +141,5 @@ footer {height: 100px;display: flex;flex-direction: column-reverse;padding: 25px
     .nav ul li a.active {color: $nav-text-dark-active;font-weight: 700;}
   .mobile-menu-open {display: inline-block;}
   .nav-background {display: block;}
+  .header-container {margin-top: 0;}
 }
