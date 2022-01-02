@@ -22,14 +22,15 @@ class AnnouncementController extends Controller
     }
 
     public function getAdminIndex() {
-        
+        $announcements = Announcement::all();
+        return view('admin.announcements.index', ['announcements' => $announcements]);
     }
 
     public function getAdminCreate() {
 
     }
 
-    public function postAdminCreate() {
+    public function postAdminCreate($request) {
 
     }
 
@@ -37,7 +38,7 @@ class AnnouncementController extends Controller
 
     }
     
-    public function postAdminUpdate() {
+    public function postAdminUpdate($request) {
 
     }
 
