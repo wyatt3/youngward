@@ -16,8 +16,11 @@
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ml-auto">
           @if (Auth::user() ? Auth::user()->isAdmin() : '')
-          <li class="nav-item"><a href="" class="nav-link">Media</a></li>
-          <li class="nav-item"><a href="" class="nav-link">Manage Organizations</a></li>
+          <li class="nav-item"><a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('announcements/*') ? 'active' : ''}}">Announcements</a></li>
+          <li class="nav-item"><a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('activities/*') ? 'active' : ''}}">Activities</a></li>
+          <li class="nav-item"><a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('media/*') ? 'active' : ''}}">Media</a></li>
+          <li class="nav-item"><a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('organizations/*') ? 'active' : ''}}">Organizations</a></li>
+          <li class="nav-item"><a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('users/*') ? 'active' : ''}}">Users</a></li>
           @endif
 
           @if (Auth::user())
