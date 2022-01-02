@@ -5,11 +5,21 @@
 
 @section('content')
 
-  @foreach($announcements as $announcement)
+  <div class="announcements-container">
 
-    {{ $announcement->title }} {{ $announcement->content }}<br>
+      @foreach($announcements as $announcement)
 
-  @endforeach
+      <div class="announcement">
+        <h2 class="announcement-title">{{ $announcement->title}}</h2>
+        <p class="announcement-date">Posted on {{ date_format($announcement->created_at, "F jS, Y") }}</p>
+        <p class="announcement-content">{{ $announcement->content }}</p>
 
-  <a href="{{ route('announcements.old') }}">View Older</a>
+      </div>
+      <div class="post-divider"></div>
+      @endforeach
+      
+      <a class="button view-older" href="{{ route('announcements.old') }}">View Older Announcements &gt;</a>
+      
+  </div>
+  
 @endsection
