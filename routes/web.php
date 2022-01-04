@@ -19,19 +19,28 @@ Route::get('organizations/{organization_id}', 'OrganizationController@getShow')-
 
 Route::group(['prefix' => 'announcements'], function() {
   Route::get('/', 'AnnouncementController@getIndex')->name('announcements');
-  Route::get('/past', 'AnnouncementController@getPast')->name('announcements.old');
+  Route::get('past', 'AnnouncementController@getPast')->name('announcements.old');
 });
 
 Route::group(['prefix' => 'activities'], function() {
   Route::get('/', 'ActivityController@getIndex')->name('activity.index');
-  Route::get('/past', 'ActivityController@getPast')->name('activity.old');
-  Route::get('/{activity_id}', 'ActivityController@getShow')->name('activity.show');
+  Route::get('past', 'ActivityController@getPast')->name('activity.old');
+  Route::get('/{id}', 'ActivityController@getShow')->name('activity.show');
 });
 
 
 // Admin Routes
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
   Route::get('/', 'Controller@getAdminIndex')->name('admin.index');
+
+  Route::group(['prefix' => 'announcements'], function() {
+    Route::get('/', 'AnnouncementController@getAdminIndex')->name('announcements.admin.index');
+    Route::get('create', 'AnnouncementController@getAdminCreate')->name('announcements.create');
+    Route::post('create', 'AnnouncementController@postAdminCreate')->name('announcements.store');
+    Route::get('edit/{id}', 'AnnouncementController@getAdminUpdate')->name('announcements.edit');
+    Route::post('edit', 'AnnouncementController@postAdminUpdate')->name('announcements.update');
+    Route::get('delete/{id}', 'AnnouncementController@getAdminDelete')->name('announcements.delete');
+  });
 
   Route::group(['prefix' => 'organizations'], function() {
     Route::get('/', 'OrganizationController@getAdminIndex')->name('organization.admin.index');
@@ -40,7 +49,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
   Route::group(['prefix' => 'activities'], function() {
     Route::get('/', 'ActivityController@getAdminIndex')->name('activity.admin.index');
-    Route::get('/{activity_id}', 'ActivityController@getAdminShow')->name('activity.admin.show');
+    Route::get('/{id}', 'ActivityController@getAdminShow')->name('activity.admin.show');
   });
 });
 
