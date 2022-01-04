@@ -37,9 +37,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/', 'AnnouncementController@getAdminIndex')->name('announcements.admin.index');
     Route::get('create', 'AnnouncementController@getAdminCreate')->name('announcements.create');
     Route::post('create', 'AnnouncementController@postAdminCreate')->name('announcements.store');
-    Route::get('edit/{id}', 'AnnouncementController@getAdminCreate')->name('announcements.edit');
-    Route::post('edit', 'AnnouncementController@postAdminCreate')->name('announcements.update');
-    Route::post('delete/{id}', 'AnnouncementController@postAdminDelete')->name('announcements.delete');
+    Route::get('edit/{id}', 'AnnouncementController@getAdminUpdate')->name('announcements.edit');
+    Route::post('edit', 'AnnouncementController@postAdminUpdate')->name('announcements.update');
+    Route::get('delete/{id}', 'AnnouncementController@getAdminDelete')->name('announcements.delete');
   });
 
   Route::group(['prefix' => 'organizations'], function() {
