@@ -51,6 +51,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/', 'ActivityController@getAdminIndex')->name('activity.admin.index');
     Route::get('/{id}', 'ActivityController@getAdminShow')->name('activity.admin.show');
   });
+
+  Route::group(['prefix' => 'users', 'middleware' => 'isAdmin'], function() {
+    Route::get('/', 'UserController@getIndex')->name('users.index');
+  });
 });
 
 Auth::routes(['register' => 'false']);
