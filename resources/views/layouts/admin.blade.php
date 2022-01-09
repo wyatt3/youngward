@@ -27,7 +27,7 @@
             @if (Auth::user()->isAdmin())
               <li class="nav-item"><a href="{{ route('users.index') }}" class="nav-link {{ Request::is('admin/users*') ? 'active' : '' }}">Users</a></li>
             @else
-              <li class="nav-item"><a href="{{ route('users.edit', ['id' => Auth::user()->id]) }}" class="nav-link {{ Request::is('admin/users/edit*') ? 'active : '' }}">Edit User</a></li>
+              <li class="nav-item"><a href="{{ route('users.edit', ['id' => Auth::user()->id]) }}" class="nav-link {{ Request::is('admin/users/edit*') ? 'active' : '' }}">Edit User</a></li>
             @endif
             <li class="nav-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link text-danger">Logout</a></li>
             <form id="logout-form" action="{{ route('logout') }}" method="POST">@csrf</form>
