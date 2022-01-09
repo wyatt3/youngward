@@ -54,6 +54,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
   Route::group(['prefix' => 'users', 'middleware' => 'isAdmin'], function() {
     Route::get('/', 'UserController@getIndex')->name('users.index');
+    Route::get('create', 'UserController@getCreate')->name('users.create');
+    Route::post('create', 'UserController@postCreate')->name('users.store');
+    Route::get('edit/{id}', 'UserController@getUpdate')->name('users.edit');
+    Route::post('edit', 'UserController@postUpdate')->name('users.update');
+    Route::get('delete/{id}', 'UserController@getDelete')->name('users.delete');
   });
 });
 
