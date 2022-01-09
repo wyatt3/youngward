@@ -22,10 +22,12 @@
         <ul class="navbar-nav ml-auto">
           @if (Auth::user())
             <li class="nav-item"><a href="{{ route('announcements.admin.index') }}" class="nav-link {{ Request::is('admin/announcements*') ? 'active' : ''}}">Announcements</a></li>
-            <li class="nav-item"><a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('admin/activities*') ? 'active' : ''}}">Activities</a></li>
-            <li class="nav-item"><a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('admin/media*') ? 'active' : ''}}">Media</a></li>
+            <li class="nav-item"><a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('admin/activities*') ? 'active' : '' }}">Activities</a></li>
+            <li class="nav-item"><a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('admin/media*') ? 'active' : '' }}">Media</a></li>
             @if (Auth::user()->isAdmin())
-              <li class="nav-item"><a href="{{ route('users.index') }}" class="nav-link {{ Request::is('admin/users*') ? 'active' : ''}}">Users</a></li>
+              <li class="nav-item"><a href="{{ route('users.index') }}" class="nav-link {{ Request::is('admin/users*') ? 'active' : '' }}">Users</a></li>
+            @else
+              <li class="nav-item"><a href="{{ route('users.edit', ['id' => Auth::user()->id]) }}" class="nav-link {{ Request::is('admin/users/edit*') ? 'active : '' }}">Edit User</a></li>
             @endif
             <li class="nav-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link text-danger">Logout</a></li>
             <form id="logout-form" action="{{ route('logout') }}" method="POST">@csrf</form>
