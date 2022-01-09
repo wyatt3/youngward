@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 use App\User;
 
 class UserController extends Controller
@@ -21,6 +23,10 @@ class UserController extends Controller
     }
 
     public function getUpdate($id) {
+        $currentUser = Auth::user();
+        if ((!$currentUser->isAdmin()) && $currentUser->id != $id) {
+          return redirect()->route('admin.index');
+        }
         $user = User::find($id);
         return view('admin.users.edit', ['user' => $user]);
     }
