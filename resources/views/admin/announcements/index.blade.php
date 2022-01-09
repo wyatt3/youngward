@@ -7,7 +7,8 @@
 @endif
 
 <div class="container">
-    <a href="{{ route('announcements.create') }}" class="btn btn-primary mt-5">Create Announcement</a>
+    <h1 class="mt-5">Announcements</h1>
+    <a href="{{ route('announcements.create') }}" class="btn btn-primary mt-2">Create Announcement</a>
     <table class="table table-striped table-dark mt-3 rounded">
         <tr>
             <th>Title</th>
