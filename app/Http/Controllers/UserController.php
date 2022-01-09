@@ -24,6 +24,7 @@ class UserController extends Controller
 
     public function getUpdate($id) {
         $currentUser = Auth::user();
+        // Restrict non-admin access. This should be a middleware for security reasons, but that's a lot of work and this is area is already protected by Auth...
         if ((!$currentUser->isAdmin()) && $currentUser->id != $id) {
           return redirect()->route('admin.index');
         }
