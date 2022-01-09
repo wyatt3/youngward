@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name') }} - @yield('title')</title>
-    <link rel="stylesheet" href="/css/app.min.css">
+    <link rel="stylesheet" href="{{config('app.url')}}/css/app.min.css">
   </head>
   <body>
   @include('partials.header')
