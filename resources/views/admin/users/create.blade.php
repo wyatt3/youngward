@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-sm-12 col-md-8">
+        <div class="col-sm-12 col-md-9">
             <div class="container">
-                <h1 class="my-3">Create Announcement</h1>
+                <h1 class="my-3">Create New User</h1>
                 @if ($errors->any())
                     <ul class="text-danger">
                         @foreach ($errors->all() as $error)
@@ -23,7 +23,7 @@
                         <input class="form-check-input" type="checkbox" name="role">
                         <label class="form-check-label">Admin</label>
                     </div>
-                    <div class="text-secondary">The default password is "YoungWard", please have the new user change this password as soon as possible</div>
+                    <div class="text-secondary mt-3">The default password is "YoungWard", please have the new user change this password as soon as possible</div>
                     <a href="{{ route('users.index') }}" class="btn btn-danger mt-3 mr-2">Cancel</a><input class="mt-3 btn btn-success" type="submit" value="Submit">
                 </form>
             </div>
