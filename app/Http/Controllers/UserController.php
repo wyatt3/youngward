@@ -19,7 +19,9 @@ class UserController extends Controller
     }
 
     public function postCreate(Request $request) {
-
+      $request->validate([
+        ''
+        ]);
     }
 
     public function getUpdate($id) {
@@ -33,7 +35,7 @@ class UserController extends Controller
     }
 
     public function postUpdate(Request $request) {
-
+        
     }
 
     public function getDelete($id) {
