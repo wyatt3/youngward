@@ -13,10 +13,10 @@ class ActivityTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0;$i < 20;$i++) {
+        for($i = 1;$i <= 12;$i++) {
             $event = new Activity([
                 'title' => 'title' . $i,
-                'date' => '2021-05-15',
+                'date' => "2022-{$i}-15",
                 'organization_id' => 1,
                 'notes' => 'Created by ActivityTableSeeder.php', 
             ]);

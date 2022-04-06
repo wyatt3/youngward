@@ -48,8 +48,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
   });
 
   Route::group(['prefix' => 'activities'], function() {
-    Route::get('/', 'ActivityController@getAdminIndex')->name('activity.admin.index');
-    Route::get('/{id}', 'ActivityController@getAdminShow')->name('activity.admin.show');
+    Route::get('/', 'ActivityController@getAdminIndex')->name('activities.admin.index');
+    Route::get('create', 'ActivityController@getAdminCreate')->name('activities.create');
+    Route::post('create', 'ActivityController@postAdminCreate')->name('activities.store');
+    Route::get('edit/{id}', 'ActivityController@getAdminUpdate')->name('activities.edit');
+    Route::post('edit', 'ActivityController@postAdminUpdate')->name('activities.update');
+    Route::get('delete/{id}', 'ActivityController@getAdminDelete')->name('activities.delete');
   });
 
   Route::group(['prefix' => 'users'], function() {
