@@ -8,7 +8,9 @@ use App\Activity;
 class ActivityController extends Controller
 {
     public function getIndex() {
-
+        $today = date('Y-m-d');
+        $activities = Activity::where('date', '>=', $today)->get();
+        return view('activities.index', ['activities' => $activities]);
     }
 
     public function getPast() {
