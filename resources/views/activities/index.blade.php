@@ -4,6 +4,8 @@
 @section('header-content', 'Activities')
 
 @section('content')
-
-<a class="button view-older" href="{{ route('activity.old') }}">View Past Activities &gt;</a>
+<div class="post-container">
+    
+    <a class="button view-more-right" href="{{ route('activity.old') }}">View Past Activities &gt;</a>
+</div>
 @endsection

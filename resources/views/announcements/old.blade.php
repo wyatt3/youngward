@@ -5,12 +5,17 @@
 @section('header_background', 'background styles')
 
 @section('content')
-
-  <a class="button view-older" href="{{ route('activity.index') }}">&lt; View Upcoming Activities</a>
-  @foreach($announcements as $announcement)
-
+  <div class="post-container">
+    
+    <a class="button view-more-left" href="{{ route('announcements') }}">&lt; View Recent Announcements</a>
+    @foreach($announcements as $announcement)
+    
     {{ $announcement->title }} {{ $announcement->content }}<br>
+    
+    @endforeach
+    @if(count($announcements) > 5)
+      <a class="button view-more-left" href="{{ route('announcements') }}">&lt; View Recent Announcements</a>
+    @endif
 
-  @endforeach
-
+  </div>
 @endsection
