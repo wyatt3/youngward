@@ -9,13 +9,13 @@ class ActivityController extends Controller
 {
     public function getIndex() {
         $today = date('Y-m-d');
-        $activities = Activity::where('date', '>=', $today)->get();
+        $activities = Activity::where('date', '>=', $today)->with('media')->get();
         return view('activities.index', ['activities' => $activities]);
     }
 
     public function getPast() {
         $today = date('Y-m-d');
-        $old_activities = Activity::where('date', '<', $today)->get();
+        $old_activities = Activity::where('date', '<', $today)->with('media')->get();
         return view('activities.old', ['activities' => $old_activities]);
     }
 
