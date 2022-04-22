@@ -42,10 +42,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('delete/{id}', 'AnnouncementController@getAdminDelete')->name('announcements.delete');
   });
 
-  Route::group(['prefix' => 'organizations'], function() {
-    Route::get('/', 'OrganizationController@getAdminIndex')->name('organization.admin.index');
-    Route::get('/{organization_id}', 'OrganizationController@getAdminShow')->name('organization.admin.show');
-  });
+  // Route::group(['prefix' => 'organizations'], function() {
+  //   Route::get('/', 'OrganizationController@getAdminIndex')->name('organization.admin.index');
+  //   Route::get('/{organization_id}', 'OrganizationController@getAdminShow')->name('organization.admin.show');
+  // });
 
   Route::group(['prefix' => 'activities'], function() {
     Route::get('/', 'ActivityController@getAdminIndex')->name('activities.admin.index');
