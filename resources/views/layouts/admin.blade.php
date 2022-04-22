@@ -22,7 +22,7 @@
         <ul class="navbar-nav ml-auto">
           @if (Auth::user())
             <li class="nav-item"><a href="{{ route('announcements.admin.index') }}" class="nav-link {{ Request::is('admin/announcements*') ? 'active' : ''}}">Announcements</a></li>
-            <li class="nav-item"><a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('admin/activities*') ? 'active' : '' }}">Activities</a></li>
+            <li class="nav-item"><a href="{{ route('activities.admin.index') }}" class="nav-link {{ Request::is('admin/activities*') ? 'active' : '' }}">Activities</a></li>
             <li class="nav-item"><a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('admin/media*') ? 'active' : '' }}">Media</a></li>
             @if (Auth::user()->isAdmin())
               <li class="nav-item"><a href="{{ route('users.index') }}" class="nav-link {{ Request::is('admin/users*') ? 'active' : '' }}">Users</a></li>

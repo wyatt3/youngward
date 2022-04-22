@@ -6,7 +6,9 @@
 @section('content')
     <div class="post-container">
         <a class="button view-more-left" href="{{ route('activity.index') }}">&lt; View Upcoming Activities</a>
-
+        @foreach($activities as $activity)
+        
+        @endforeach
         @if(count($activities) > 5)
             <a class="button view-more-left" href="{{ route('activity.index') }}">&lt; View Upcoming Activities</a>
         @endif
