@@ -68,6 +68,7 @@ button {cursor: pointer;background: none;border: none;}
 .post-date {margin: 3px 0;font-size: 14px;color: $fine-print;}
 .view-older {margin: 10px 15px;}
 .post-divider {border-bottom: solid 1px $post-divider;margin: 25px 0;}
+.post-divider:last-of-type {display: none;}
 // END 0px - 374px
 
 //  ______   ______   _______  _______                         ___    _____    _____   _______          

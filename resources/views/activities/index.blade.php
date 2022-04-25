@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="post-container">
-    <a class="button view-more-right" href="{{ route('activity.old') }}">View Past Activities &gt;</a>
+    @if($show_old_button)<a class="button view-more-right" href="{{ route('activity.old') }}">View Past Activities &gt;</a>@endif
     
     @foreach($activities as $activity)
         <div class="post">

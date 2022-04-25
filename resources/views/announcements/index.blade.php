@@ -18,7 +18,7 @@
       <div class="post-divider"></div>
       @endforeach
       
-      <a class="button view-more-right" href="{{ route('announcements.old') }}">View Older Announcements &gt;</a>
+      @if($show_old_button)<a class="button view-more-right" href="{{ route('announcements.old') }}">View Older Announcements &gt;</a>@endif
       
   </div>
   
