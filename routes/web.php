@@ -23,9 +23,9 @@ Route::group(['prefix' => 'announcements'], function() {
 });
 
 Route::group(['prefix' => 'activities'], function() {
-  Route::get('/', 'ActivityController@getIndex')->name('activity.index');
-  Route::get('past', 'ActivityController@getPast')->name('activity.old');
-  Route::get('/{id}', 'ActivityController@getShow')->name('activity.show');
+  Route::get('/', 'ActivityController@getIndex')->name('activities');
+  Route::get('past', 'ActivityController@getPast')->name('activities.old');
+  Route::get('/{id}', 'ActivityController@getShow')->name('activities.show');
 });
 
 
