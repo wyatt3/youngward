@@ -37,11 +37,13 @@ class ActivityController extends Controller
     public function postAdminCreate(Request $request) {
         $request->validate([
             'title' => 'required',
-            'content' => 'required',
+            'date' => 'required',
+            'time' => 'required',
         ]);
         $activity = new Activity([
             'title' => $request->title,
-            'content' => $request->content,
+            'date' => date('Y-m-d h:i:s', strtotime("{$request->date} {$request->time}")),
+            'notes' => $request->notes ?? '',
         ]);
         $activity->save();
         return redirect()->route('activities.admin.index')->with('message', 'Activity created!');
@@ -56,11 +58,14 @@ class ActivityController extends Controller
     public function postAdminUpdate(Request $request) {
         $request->validate([
             'title' => 'required',
-            'content' => 'required',
+            'date' => 'required',
+            'time' => 'required',
         ]);
         $activity = Activity::find($request->id);
         $activity->title = $request->title;
-        $activity->content = $request->content;
+        $activity->date = date('Y-m-d h:i:s', strtotime("{$request->date} {$request->time}"));
+        $activity->notes = $request->notes ?? '';
+        $activity->organization_id = null;
         $activity->save();
 
         return redirect()->route('activities.admin.index')->with('message', 'Activity successfully edited!');

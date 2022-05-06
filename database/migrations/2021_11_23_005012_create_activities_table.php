@@ -17,8 +17,8 @@ class CreateActivitiesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
-            $table->date('date');
-            $table->string('organization_id');
+            $table->dateTime('date');
+            $table->string('organization_id')->nullable();
             $table->longText('notes');
         });
     }
