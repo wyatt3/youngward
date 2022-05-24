@@ -10,12 +10,13 @@ class ActivityController extends Controller
     public function getIndex() {
         $today = date('Y-m-d');
         $activities = Activity::where('date', '>=', $today)->get();
-        return view('activities.index', ['activities' => $activities]);
+        $old_activities = Activity::where('date', '<', $today)->count();
+        return view('activities.index', ['activities' => $activities, 'show_old_button' => $old_activities > 0]);
     }
 
     public function getPast() {
         $today = date('Y-m-d');
-        $old_activities = Activity::where('date', '<', $today)->get();
+        $old_activities = Activity::where('date', '<', $today)->orderBy('date', 'desc')->get();
         return view('activities.old', ['activities' => $old_activities]);
     }
 
@@ -36,11 +37,13 @@ class ActivityController extends Controller
     public function postAdminCreate(Request $request) {
         $request->validate([
             'title' => 'required',
-            'content' => 'required',
+            'date' => 'required',
+            'time' => 'required',
         ]);
         $activity = new Activity([
             'title' => $request->title,
-            'content' => $request->content,
+            'date' => date('Y-m-d h:i:s', strtotime("{$request->date} {$request->time}")),
+            'notes' => $request->notes ?? '',
         ]);
         $activity->save();
         return redirect()->route('activities.admin.index')->with('message', 'Activity created!');
@@ -55,11 +58,14 @@ class ActivityController extends Controller
     public function postAdminUpdate(Request $request) {
         $request->validate([
             'title' => 'required',
-            'content' => 'required',
+            'date' => 'required',
+            'time' => 'required',
         ]);
         $activity = Activity::find($request->id);
         $activity->title = $request->title;
-        $activity->content = $request->content;
+        $activity->date = date('Y-m-d h:i:s', strtotime("{$request->date} {$request->time}"));
+        $activity->notes = $request->notes ?? '';
+        $activity->organization_id = null;
         $activity->save();
 
         return redirect()->route('activities.admin.index')->with('message', 'Activity successfully edited!');

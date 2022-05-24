@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Controller@getIndex')->name('index');
 
-Route::get('organizations/{organization_id}', 'OrganizationController@getShow')->name('organization.show');
+// Route::get('organizations/{organization_id}', 'OrganizationController@getShow')->name('organization.show');
 
 Route::group(['prefix' => 'announcements'], function() {
   Route::get('/', 'AnnouncementController@getIndex')->name('announcements');
@@ -23,9 +24,9 @@ Route::group(['prefix' => 'announcements'], function() {
 });
 
 Route::group(['prefix' => 'activities'], function() {
-  Route::get('/', 'ActivityController@getIndex')->name('activity.index');
-  Route::get('past', 'ActivityController@getPast')->name('activity.old');
-  Route::get('/{id}', 'ActivityController@getShow')->name('activity.show');
+  Route::get('/', 'ActivityController@getIndex')->name('activities');
+  Route::get('past', 'ActivityController@getPast')->name('activities.old');
+  Route::get('/{id}', 'ActivityController@getShow')->name('activities.show');
 });
 
 
@@ -42,10 +43,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('delete/{id}', 'AnnouncementController@getAdminDelete')->name('announcements.delete');
   });
 
-  Route::group(['prefix' => 'organizations'], function() {
-    Route::get('/', 'OrganizationController@getAdminIndex')->name('organization.admin.index');
-    Route::get('/{organization_id}', 'OrganizationController@getAdminShow')->name('organization.admin.show');
-  });
+  // Route::group(['prefix' => 'organizations'], function() {
+  //   Route::get('/', 'OrganizationController@getAdminIndex')->name('organization.admin.index');
+  //   Route::get('/{organization_id}', 'OrganizationController@getAdminShow')->name('organization.admin.show');
+  // });
 
   Route::group(['prefix' => 'activities'], function() {
     Route::get('/', 'ActivityController@getAdminIndex')->name('activities.admin.index');
@@ -65,6 +66,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
       Route::post('create', 'UserController@postCreate')->name('users.store');
       Route::get('delete/{id}', 'UserController@getDelete')->name('users.delete');
     });
+  });
+
+  Route::group(['prefix' => 'media'], function() {
+    Route::post('delete', 'MediaController@delete')->name('media.delete');
   });
 });
 

@@ -2,9 +2,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name') }} - Admin</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/app.min.css">
+    <script src="https://kit.fontawesome.com/73a07c3b04.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -22,7 +24,7 @@
         <ul class="navbar-nav ml-auto">
           @if (Auth::user())
             <li class="nav-item"><a href="{{ route('announcements.admin.index') }}" class="nav-link {{ Request::is('admin/announcements*') ? 'active' : ''}}">Announcements</a></li>
-            <li class="nav-item"><a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('admin/activities*') ? 'active' : '' }}">Activities</a></li>
+            <li class="nav-item"><a href="{{ route('activities.admin.index') }}" class="nav-link {{ Request::is('admin/activities*') ? 'active' : '' }}">Activities</a></li>
             <li class="nav-item"><a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('admin/media*') ? 'active' : '' }}">Media</a></li>
             @if (Auth::user()->isAdmin())
               <li class="nav-item"><a href="{{ route('users.index') }}" class="nav-link {{ Request::is('admin/users*') ? 'active' : '' }}">Users</a></li>
@@ -37,4 +39,22 @@
   </div>
   @yield('content')
   </body>
+  <script>
+    function deleteMedia(event, id) {
+      event.target.innerHTML = "<i class='fa-solid fa-spin fa-circle-notch'></i>";
+      $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+      $.ajax({
+        type:"POST",
+        url:"{{ route('media.delete') }}",
+        data:{id:id},
+        success:function() {
+          event.target.parentElement.remove();
+        }
+      });
+    }
+  </script>
 <html>

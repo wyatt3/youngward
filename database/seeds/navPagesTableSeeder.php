@@ -15,7 +15,7 @@ class NavPagesTableSeeder extends Seeder
     {
         $page = new Page([
             'name' => 'Ward Activities',
-            'route' => 'activity.index',
+            'route' => 'activities',
             'order' => '2',
         ]);
         $page->save();
