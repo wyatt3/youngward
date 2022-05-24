@@ -67,6 +67,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
       Route::get('delete/{id}', 'UserController@getDelete')->name('users.delete');
     });
   });
+
+  Route::group(['prefix' => 'media'], function() {
+    Route::post('delete', 'MediaController@delete')->name('media.delete');
+  });
 });
 
 Auth::routes(['register' => 'false']);

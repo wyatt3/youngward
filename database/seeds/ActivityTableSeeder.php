@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 
 use App\Activity;
+use App\Media;
 
 class ActivityTableSeeder extends Seeder
 {
@@ -21,6 +22,10 @@ class ActivityTableSeeder extends Seeder
                 'notes' => 'Created by ActivityTableSeeder.php', 
             ]);
             $event->save();
+            $media = new Media([
+                'path' => "path{$i}.jpg",
+            ]);
+            $event->media()->save($media);
         }
     }
 }
