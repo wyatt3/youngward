@@ -11,6 +11,7 @@
             <input class="form-control mb-2" type="date" name="date" value="">
             <label>*Activity Time</label>
             <input class="form-control" type="time" name="date" value="">
+            @include('partials.admin.media')
             <label class="mt-2">Activity Description</label>
             <textarea class="form-control" name="notes" cols="30" rows="10"></textarea>
             <a href="{{ route('activities.admin.index') }}" class="btn btn-danger mt-3 mr-2">Cancel</a><input type="submit" class="btn btn-success mt-3" value="Create">

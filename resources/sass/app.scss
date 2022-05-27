@@ -69,6 +69,14 @@ button {cursor: pointer;background: none;border: none;}
 .view-older {margin: 10px 15px;}
 .post-divider {border-bottom: solid 1px $post-divider;margin: 25px 0;}
 .post-divider:last-of-type {display: none;}
+
+// Admin forms
+.add-media {width: 50px;height: 50px;background-color: #28A745;cursor: pointer;}
+.add-media:hover {background-color: #2F8B45;}
+.remove-media {text-align: center;z-index: 1;cursor: pointer;top: -10px;left: -10px;width: 25px;height: 25px;background-color: #DC3545;}
+.remove-media:hover {background-color: #bd3341}
+
+.media-box {width: 100%;margin-bottom: 15px;}
 // END 0px - 374px
 
 //  ______   ______   _______  _______                         ___    _____    _____   _______          
@@ -96,6 +104,7 @@ button {cursor: pointer;background: none;border: none;}
                                                                                                      
 @media screen and (min-width: 500px) {
   footer div {width: 75%;}
+  .media-box {width: 50%;}
 } // END 500px - 767px
 
 //  ______    ______   _____   _______                       _____   _______   _____   _______          
@@ -120,6 +129,9 @@ button {cursor: pointer;background: none;border: none;}
   .view-more-left {display:block;width: fit-content;margin: 10px auto 10px 0;}
   .view-more-right {display:block;width: fit-content;margin: 10px 0 10px auto;}
   footer {font-size: 14px;}
+
+  .add-media {width: 75px;height: 75px;}
+  .media-box {width: 25%;}
 } // END 768px - 959px
 
 //   _____    ______  _______  _______                      __      ___  ______    _____   _______          
