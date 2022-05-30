@@ -19,8 +19,10 @@
                     <input class="form-control" type="text" name="title" value="">
                     <label class="mt-2">Content</label>
                     <textarea class="form-control" name="content" cols="30" rows="10"></textarea>
+                    @include('partials.admin.media')
                     <a href="{{ route('announcements.admin.index') }}" class="btn btn-danger mt-3 mr-2">Cancel</a><input class="mt-3 btn btn-success" type="submit" value="Submit">
                 </form>
+                @include('partials.admin.mediaModal')
             </div>
         </div>
     </div>
