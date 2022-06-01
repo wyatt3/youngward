@@ -16,7 +16,7 @@
             @include('partials.admin.media')
             <label class="mt-2">Activity Description</label>
             <textarea class="form-control" name="notes" cols="30" rows="10">{{ $activity->notes }}</textarea>
-            <a href="{{ route('activities.admin.index') }}" class="btn btn-danger mt-3 mr-2">Cancel</a><input type="submit" class="btn btn-success mt-3" value="Save">
+            <a href="{{ route('activities.admin.index') }}" class="btn btn-danger mt-3 me-2">Cancel</a><input type="submit" class="btn btn-success mt-3" value="Save">
         </form>
         @include('partials.admin.mediaModal')
 </div>

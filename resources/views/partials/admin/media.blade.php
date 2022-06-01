@@ -8,7 +8,7 @@
     @endforeach
     <div class="media-box">
         <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-            <button type="button" class="border border-dark text-white rounded d-flex justify-content-center align-items-center add-media" data-toggle="modal" data-target="#mediaModal">
+            <button type="button" class="border border-dark text-white rounded d-flex justify-content-center align-items-center add-media" data-bs-toggle="modal" data-bs-target="#mediaModal">
                 <i class="fa-solid fa-plus"></i>
             </button>    
         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Announcement;
+use App\Media;
 use Carbon\Carbon;
 
 class AnnouncementController extends Controller
@@ -44,6 +45,16 @@ class AnnouncementController extends Controller
             'content' => $request->content,
         ]);
         $announcement->save();
+        if($request->hasFile('files')) {
+            $files = $request->file('files');
+            foreach($files as $image){
+                $path = $image->store('public/img');
+                $media = new Media([
+                    'path' => ltrim($path, 'public/img'),
+                ]);
+                $announcement->media()->save($media);
+            }
+        }
         return redirect()->route('announcements.admin.index')->with('message', 'Announcement created!');
     }
 

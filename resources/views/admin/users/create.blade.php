@@ -24,7 +24,7 @@
                         <label class="form-check-label">Admin</label>
                     </div>
                     <div class="text-secondary mt-3">The default password is "YoungWard", please have the new user change this password as soon as possible</div>
-                    <a href="{{ route('users.index') }}" class="btn btn-danger mt-3 mr-2">Cancel</a><input class="mt-3 btn btn-success" type="submit" value="Submit">
+                    <a href="{{ route('users.index') }}" class="btn btn-danger mt-3 me-2">Cancel</a><input class="mt-3 btn btn-success" type="submit" value="Submit">
                 </form>
             </div>
         </div>
