@@ -104,7 +104,7 @@ button {cursor: pointer;background: none;border: none;}
                                                                                                      
 @media screen and (min-width: 500px) {
   footer div {width: 75%;}
-  .media-box {width: 50%;}
+  .media-box {width: 48%;margin: 0 1% 15px;}
 } // END 500px - 767px
 
 //  ______    ______   _____   _______                       _____   _______   _____   _______          
@@ -131,7 +131,7 @@ button {cursor: pointer;background: none;border: none;}
   footer {font-size: 14px;}
 
   .add-media {width: 75px;height: 75px;}
-  .media-box {width: 25%;}
+  .media-box {width: 23%;margin: 0 1% 15px;}
 } // END 768px - 959px
 
 //   _____    ______  _______  _______                      __      ___  ______    _____   _______          

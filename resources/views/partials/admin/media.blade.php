@@ -1,9 +1,9 @@
 <label class="d-block">Attachments</label>
-<div class="d-flex flex-row flex-wrap my-2">
-    @foreach($activity->media ?? [] as $media)
+<div class="d-flex flex-row flex-wrap my-2 media-container">
+    @foreach($activity->media ?? $announcement->media ?? [] as $media)
         <div class="media-box position-relative">
             <div class="position-absolute text-white border border-dark rounded-circle remove-media" onclick="deleteMedia(event, {{ $media->id }})">&times;</div>
-            <img class="w-100" src="{{ config('app.url') . '/storage/' . $media->path }}">
+            <img class="w-100" src="{{ '/storage/img/' . $media->path }}">
         </div>
     @endforeach
     <div class="media-box">

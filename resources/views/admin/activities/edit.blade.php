@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+<?php $type = "Activity";$id = $activity->id; ?>
 <div class="container mb-5">
         <h1 class="mt-5">Edit Activity</h1>
         <form action="{{ route('activities.update') }}" method="POST">
