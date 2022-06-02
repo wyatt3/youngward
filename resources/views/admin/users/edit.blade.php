@@ -14,14 +14,16 @@
         @csrf
         <input type="hidden" name="id" value="{{ $user->id }}">
         <label>Name:</label>
-        <input class="form-control" type="text" name="name" value="{{ $user->name }}">
+        <input class="form-control mb-2" type="text" name="name" value="{{ $user->name }}">
+        <label>Email Address:</label>
+        <input class="form-control" type="email" name="email" value="{{ $user->email }}">
         <h2 class="mt-3">Change Password</h2>
         <label>Old Password:</label>
-        <input class="form-control" type="password" name="oldPassword">
+        <input class="form-control mb-2" type="password" name="oldPassword">
         <label>New Password:</label>
-        <input class="form-control" type="password" name="newPassword">
+        <input class="form-control mb-2" type="password" name="newPassword">
         <label>New Password (Again):</label>
-        <input class="form-control" type="password" name="newPasswordConfirm">
+        <input class="form-control mb-2" type="password" name="newPasswordConfirm">
         <a class="btn btn-danger mt-3" href="{{ Auth::user()->isAdmin() ? route('users.index') : route('admin.index')}}">Cancel</a>
         <input class="btn btn-success mt-3" type="submit" value="Update">
     </form>

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -35,10 +37,26 @@ class UserController extends Controller
     }
 
     public function postUpdate(Request $request) {
-        $request->validate([
+        $rules = [
             'name' => 'required',
-            
-        ]);
+            'email' => 'required|email',
+            'oldPassword' => 'nullable|current_password|required_with:newPassword,newPasswordConfirm',
+            'newPassword' => 'required_with:oldPassword,newPasswordConfirm',
+            'newPasswordConfirm' => 'required_with:oldPassword,newPassword|same:newPassword',
+        ];
+        $messages = [
+            // 'required_with' => 'The :attribute field is required unless :other is blank.',
+            'current_password' => 'Incorrect user password.',
+            'same' => 'The :attribute field and :other field must be the same',
+        ];
+        Validator::make($request->all(), $rules, $messages)->validate();
+        $user = User::find($request->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if($request->newPassword) {
+            $user->password = Hash::make($request->newPassword);
+        }
+        $user->save();
         return redirect()->route(Auth::user()->isAdmin() ? 'users.index' : 'admin.index')->with('message', 'Account updated!');
     }
 
