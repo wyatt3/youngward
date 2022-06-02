@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Activity;
+use App\Media;
 
 class ActivityController extends Controller
 {
@@ -46,6 +47,16 @@ class ActivityController extends Controller
             'notes' => $request->notes ?? '',
         ]);
         $activity->save();
+        if($request->hasFile('files')) {
+            $files = $request->file('files');
+            foreach($files as $image){
+                $path = $image->store('public/img');
+                $media = new Media([
+                    'path' => ltrim($path, 'public/img'),
+                ]);
+                $activity->media()->save($media);
+            }
+        }
         return redirect()->route('activities.admin.index')->with('message', 'Activity created!');
     }
 

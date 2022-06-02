@@ -5,6 +5,10 @@
 
 @section('content')
 
+@if(Session::has('message'))
+    <div class="alert alert-warning">{{ Session('message') }}</div>
+@endif
+
   <div class="post-container">
 
       @foreach($announcements as $announcement)
