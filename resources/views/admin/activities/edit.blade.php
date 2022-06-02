@@ -4,6 +4,13 @@
 <?php $type = "Activity";$id = $activity->id; ?>
 <div class="container mb-5">
         <h1 class="mt-5">Edit Activity</h1>
+        @if ($errors->any())
+            <ul class="text-danger">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
         <form action="{{ route('activities.update') }}" method="POST">
             @csrf
             <input type="hidden" name="id" value="{{ $activity->id }}">
