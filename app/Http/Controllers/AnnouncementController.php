@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Announcement;
 use App\Media;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class AnnouncementController extends Controller
 {
@@ -79,6 +80,10 @@ class AnnouncementController extends Controller
 
     public function getAdminDelete($id) {
         $announcement = Announcement::find($id);
+        foreach($announcement->media as $media) {
+            Storage::delete("public/img/{$media->path}");
+            $media->delete();
+        }
         $announcement->delete();
 
         return redirect()->route('announcements.admin.index')->with('message', 'Announcement deleted!');

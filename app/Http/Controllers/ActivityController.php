@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Activity;
 use App\Media;
+use Illuminate\Support\Facades\Storage;
 
 class ActivityController extends Controller
 {
@@ -84,8 +85,11 @@ class ActivityController extends Controller
 
     public function getAdminDelete($id) {
         $activity = Activity::find($id);
+        foreach($activity->media as $media) {
+            Storage::delete("public/img/{$media->path}");
+            $media->delete();
+        }
         $activity->delete();
-
         return redirect()->route('activities.admin.index')->with('message', 'Activity deleted!');
     }
 }
