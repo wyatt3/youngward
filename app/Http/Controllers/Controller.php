@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\NavPage;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -16,6 +17,8 @@ class Controller extends BaseController
     }
 
     public function getAdminIndex() {
-        return view('admin.home');
+        $announcementHeader = NavPage::where('name', 'Announcements')->first()->media;
+        $activityHeader = NavPage::where('name', 'Ward Activities')->first()->media;
+        return view('admin.home', ['announcementHeader' => $announcementHeader, 'activityHeader' => $activityHeader]);
     }
 }

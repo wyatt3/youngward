@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </head>
   <body>
-  <div class="navbar navbar-dark navbar-expand-md bg-dark p-2">
+  <div class="navbar navbar-dark navbar-expand-md bg-dark p-2 fixed-top">
       <a href="{{ route('admin.index') }}" class="navbar-brand">Young Ward Admin</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse justify-content-between" id="nav">
