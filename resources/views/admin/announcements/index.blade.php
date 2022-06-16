@@ -2,12 +2,8 @@
 
 @section('content')
 
-@if(Session::has('message'))
-    <div class="alert alert-warning">{{ Session('message') }}</div>
-@endif
-
-<div class="container">
-    <h1 class="mt-5">Manage Announcements</h1>
+<div class="container mt-4">
+    <h1 class="mt-5 mb-3">Manage Announcements</h1>
     <a href="{{ route('announcements.create') }}" class="btn btn-primary mt-2">Create Announcement</a>
     <table class="table table-striped table-dark mt-3 rounded">
         <tr>

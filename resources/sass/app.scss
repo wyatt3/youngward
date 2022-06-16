@@ -59,6 +59,8 @@ button {cursor: pointer;background: none;border: none;}
 .admin-link {color: $fine-print;text-decoration: none;}
 .admin-link:hover {text-decoration: underline;}
 
+.message {opacity: 0.85;}
+
 //Header Styles
 .header-container {height: 300px;margin-top: 0;display: flex;justify-content: center;align-items: center;background-color: $primary;color: $white;}
 

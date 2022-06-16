@@ -32,6 +32,19 @@ class MediaController extends Controller
         return true;
     }
 
+    public function updateHeader(Request $request) {
+        $media = Media::find($request->mediaID);
+        Storage::delete("public/img/{$media->path}");
+
+        $file = $request->file('file');
+        $path = $file->store('public/img');
+
+        $media->path = ltrim($path, 'public/img');
+        $media->save();
+        
+        return redirect()->route('admin.index')->with('message', 'Header updated.');
+    }
+
     public function delete(Request $request) {
         $media = Media::find($request->id);
         $media->delete();
