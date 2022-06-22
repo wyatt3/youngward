@@ -33,12 +33,14 @@ class MediaController extends Controller
     }
 
     public function updateHeader(Request $request) {
-        $media = Media::find($request->mediaID);
+        $media = Media::find($request->mediaID) ?? new Media();
         Storage::delete("public/img/{$media->path}");
 
         $file = $request->file('file');
         $path = $file->store('public/img');
 
+        $media->media_type = "App\NavPage";
+        $media->media_id = $request->mediableID;
         $media->path = ltrim($path, 'public/img');
         $media->save();
         
