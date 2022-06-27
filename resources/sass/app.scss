@@ -122,7 +122,7 @@ button {cursor: pointer;background: none;border: none;}
   .nav {display: flex;justify-content: space-between;padding: 0 25px 0 0;}
     .nav ul {height: auto !important;}
       .nav ul li {display: inline-block;}
-    .nav-light {background-color: rgba(0, 0, 0, 0);}
+    .nav-light {background-color: rgba(0, 0, 0, 0.35);}
       .nav-light ul li a.active {color: $nav-text-light-active;}
   .mobile-menu-open {display: none;}
   .header-container {margin-top: -55px;}
