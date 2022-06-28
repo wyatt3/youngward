@@ -5,4 +5,8 @@
 
 @section('content')
 
+    @foreach($activities as $activity)
+        {{$activity->title}}
+    @endforeach
+
 @endsection

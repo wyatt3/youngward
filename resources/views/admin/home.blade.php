@@ -26,6 +26,14 @@
 
     <h2 class="mt-5 mb-3">Home Page:</h2>
     <h3>Header:</h3>
+    <img class="w-100" src="/storage/img/{{ $homeHeader ? $homeHeader->path : 'no-image.jpg' }}">
+    <form method="POST" action="{{ route('media.update') }}" enctype="multipart/form-data">
+        @csrf
+        <input type="hidden" name="mediaID" value="{{ $homeHeader->id ?? 0}}">
+        <input type="hidden" name="mediableID" value="{{ NavPage::where('name', 'Home')->first()->id }}">
+        <label class="mt-3">Replace Home Page Header:</label>
+        <input type="file" name="file" required class="file-upload form-control mt-1">
+    </form>
 </div>
 
 <script>

@@ -1,4 +1,4 @@
-//fonts
+// fonts
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
@@ -25,15 +25,20 @@ $nav-text-dark-active: #49AAD4;
 // |  (__) || )      ( /   \ )           /\___/  / /  /       | |  | )      ( /   \ )
 // (_______)|/       |/     \|           \______/  \_/        (_)  |/       |/     \|
                                                                                   
-//General Styles
+// General Styles
 body {color: $primary;margin: 0;font-family: 'Lato';min-height: 100vh;display: flex;flex-direction: column;}
 footer {height: 100px;display: flex;align-items: flex-end;justify-content: space-between;padding: 25px;text-align: right;color: $fine-print;margin-top:auto;font-size: 9px;}
 footer div {width: 55%;}
 .button {padding: 12px 20px;background-color: $primary;color: $white;text-decoration: none;border-radius: 5px;}
 .button:hover{background-color: darken($primary, 3%);}
 button {cursor: pointer;background: none;border: none;}
+.hide {display: none;}
 
-//Nav Styles
+// Pagination Styles
+.pagination {display: flex;list-style-type: none;}
+.pagination a {text-decoration: none;}
+
+// Nav Styles
 .nav {display: block;padding: 15px 0;position: sticky;top: 0;z-index: 999;min-height: 25px;}
   .nav ul {transition: 0.5s;overflow: hidden;height: 0px;list-style-type: none;margin: 0;padding: 0;}
   .nav ul li {display: block;padding-top: 16px;}
@@ -61,10 +66,10 @@ button {cursor: pointer;background: none;border: none;}
 
 .message {opacity: 0.85;}
 
-//Header Styles
+// Header Styles
 .header-container {height: 300px;margin-top: 0;display: flex;justify-content: center;align-items: center;background-color: $primary;color: $white;}
 
-//Post pages
+// Post pages
 .post-container {padding: 25px 15%;}
 .post-title {margin: 0;}
 .post-date {margin: 3px 0;font-size: 14px;color: $fine-print;}
