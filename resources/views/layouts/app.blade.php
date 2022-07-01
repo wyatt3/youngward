@@ -5,6 +5,7 @@
     <title>{{ config('app.name') }} - @yield('title')</title>
     <link rel="stylesheet" href="{{config('app.url')}}/css/app.min.css">
     <link rel="shortcut icon" href="https://www.churchofjesuschrist.org/services/platform/v4/resources/static/image/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/73a07c3b04.js" crossorigin="anonymous"></script>
   </head>
   <body>
   @include('partials.header')

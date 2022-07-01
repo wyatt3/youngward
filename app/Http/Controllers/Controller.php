@@ -18,8 +18,9 @@ class Controller extends BaseController
         $page = NavPage::where('name', 'Home')->first();
         $media = NavPage::where('name', 'HomeMedia')->first();
 
-        $announcements = Announcement::limit(3)->get();
-        $activities = Activity::limit(3)->get();
+        $today = date('Y-m-d');
+        $announcements = Announcement::orderBy('created_at', 'desc')->limit(3)->get();
+        $activities = Activity::where('date', '>=', $today)->orderBy('date', 'asc')->limit(3)->get();
         return view('home', ['page' => $page, 'media' => $media, 'announcements'=> $announcements, 'activities' => $activities,]);
     }
 

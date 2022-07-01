@@ -34,6 +34,15 @@ footer div {width: 55%;}
 button {cursor: pointer;background: none;border: none;}
 .hide {display: none;}
 
+// Home Page Styles
+.flex-container {display: flex;}
+.container {width: 90%;margin: auto;}
+.card {flex: 1;margin: 8px;padding: 15px;border-radius: 15px;border: 1px solid #DDD;}
+.card.view-more {background-color: $primary;color: $white;text-decoration: none;}
+.card-content {display: -webkit-box;-webkit-line-clamp: 5;-webkit-box-orient: vertical;overflow: hidden;max-height: 150px;}
+.card .view-more {border-top: solid 1px #DDD;margin-top: 9px;padding: 15px 0 0 5px;display: block;color: $primary;}
+
+
 // Pagination Styles
 .pagination {display: flex;list-style-type: none;}
 .pagination a {text-decoration: none;}
@@ -45,7 +54,7 @@ button {cursor: pointer;background: none;border: none;}
   .nav a {color: $white;font-size: 19px;}
   .nav ul li a {font-size: 17px;font-weight: 300;}
   .nav a, .nav ul li a {text-decoration: none;padding: 16px 12px;}
-  .mobile-menu-open {position: absolute;right: 15px;color: #fff;}
+  .mobile-menu-open {position: absolute;right: 15px;color: $white;}
 
 .nav-light {transition: 0.5s;background-color: $secondary;}
 .nav-light ul li a {color: $nav-text-light;}
@@ -74,8 +83,9 @@ button {cursor: pointer;background: none;border: none;}
 .post-title {margin: 0;}
 .post-date {margin: 3px 0;font-size: 14px;color: $fine-print;}
 .view-older {margin: 10px 15px;}
-.post-divider {border-bottom: solid 1px $post-divider;margin: 25px 0;}
+.post-divider {border-bottom: solid 1px $post-divider;margin: 15px 0;}
 .post-divider:last-of-type {display: none;}
+.mb {margin-bottom: 35px;}
 
 // Admin forms
 .add-media {width: 50px;height: 50px;background-color: #198754;cursor: pointer;}
@@ -132,6 +142,7 @@ button {cursor: pointer;background: none;border: none;}
   .mobile-menu-open {display: none;}
   .header-container {margin-top: -55px;}
   .mobile-menu-open {display: none;}
+  .container {width: 85%;}
 
   .view-more-left {display:block;width: fit-content;margin: 10px auto 10px 0;}
   .view-more-right {display:block;width: fit-content;margin: 10px 0 10px auto;}
@@ -164,5 +175,5 @@ button {cursor: pointer;background: none;border: none;}
 // \____/    (_)       (_)  (_______)|/       |/     \|     (_)   
                                                                
 @media screen and (min-width: 1440px) {
-  
+  .container {width: 75%;}
 } // END 1440px +
