@@ -8,7 +8,7 @@
     @if($show_old_button)<a class="button view-more-right" href="{{ route('activities.old') }}">View Past Activities &gt;</a>@endif
     
     @foreach($activities as $activity)
-        <div class="mb" id="{{ $activity->id }}"></div>
+        <div class="mb"></div>
         <div class="post">
             <h2 class="post-title">{{ $activity->title}}</h2>
             <p class="post-date">{{ date_format(date_create($activity->date), "F jS, Y") }}<br>at {{ date_format(date_create($activity->date), 'h:i a') }}</p>
@@ -19,7 +19,7 @@
                     </div>
                 @endforeach
             </div>
-            <p class="post-content">{{ $activity->notes }}</p>
+            <p class="post-content" id="{{ $activity->id + 1 }}">{{ $activity->notes }}</p>
         </div>
         <div class="post-divider"></div>
     @endforeach

@@ -31,10 +31,6 @@ class NavPagesTableSeeder extends Seeder
         Page::create([
             'name' => 'Home',
             'order' => '4',
-        ]); 
-        Page::create([
-            'name' => 'HomeMedia',
-            'order' => '5',
         ]);
     }
 }

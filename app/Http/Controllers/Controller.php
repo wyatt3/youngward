@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Activity;
 use App\Announcement;
+use App\HomePageModule;
 use App\NavPage;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -16,12 +17,19 @@ class Controller extends BaseController
 
     public function getIndex() {
         $page = NavPage::where('name', 'Home')->first();
-        $media = NavPage::where('name', 'HomeMedia')->first();
 
+        $opener = HomePageModule::where('name', 'opener')->first();
+        $media = HomePageModule::where('name', 'media')->first()->media()->paginate(3);
         $today = date('Y-m-d');
         $announcements = Announcement::orderBy('created_at', 'desc')->limit(3)->get();
         $activities = Activity::where('date', '>=', $today)->orderBy('date', 'asc')->limit(3)->get();
-        return view('home', ['page' => $page, 'media' => $media, 'announcements'=> $announcements, 'activities' => $activities,]);
+        return view('home', [
+            'page' => $page,
+            'announcements'=> $announcements, 
+            'activities' => $activities, 
+            'opener' => $opener,
+            'media' => $media,
+        ]);
     }
 
     public function getAdminIndex() {

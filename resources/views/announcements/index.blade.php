@@ -8,7 +8,7 @@
   <div class="post-container">
 
       @foreach($announcements as $announcement)
-      <div class="mb" id="{{ $announcement->id }}"></div>
+      <div class="mb"></div>
       <div class="post">
         @foreach($announcement->media as $media)
             <div class="post-media">
@@ -17,7 +17,7 @@
         @endforeach
         <h2 class="post-title">{{ $announcement->title}}</h2>
         <p class="post-date">Posted on {{ date_format($announcement->created_at, "F jS, Y") }}</p>
-        <p class="post-content">{{ $announcement->content }}</p>
+        <p class="post-content" id="{{ $announcement->id + 1 }}">{{ $announcement->content }}</p>
 
       </div>
       <div class="post-divider"></div>

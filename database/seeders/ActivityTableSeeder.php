@@ -14,7 +14,7 @@ class ActivityTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 1;$i <= 12;$i++) {
+        for($i = 4;$i <= 4;$i++) {
             $event = new Activity([
                 'title' => 'title' . $i,
                 'date' => "2022-{$i}-15",
@@ -22,10 +22,6 @@ class ActivityTableSeeder extends Seeder
                 'notes' => 'Created by ActivityTableSeeder.php', 
             ]);
             $event->save();
-            $media = new Media([
-                'path' => "path{$i}.jpg",
-            ]);
-            $event->media()->save($media);
         }
     }
 }
