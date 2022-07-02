@@ -95,6 +95,7 @@ button {cursor: pointer;background: none;border: none;}
 .add-media:hover {background-color: #167649;}
 .remove-media {text-align: center;z-index: 1;cursor: pointer;top: -10px;left: -10px;width: 25px;height: 25px;background-color: #DC3545;}
 .remove-media:hover {background-color: #bd3341}
+.admin-header {max-width: 100%;}
 
 .media-box {width: 100%;margin-bottom: 15px;}
 
@@ -152,6 +153,8 @@ button {cursor: pointer;background: none;border: none;}
   .header-container {margin-top: -55px;}
   .mobile-menu-open {display: none;}
   .container {width: 85%;}
+
+  .admin-header {height: 200px;}
 
   .view-more-left {display:block;width: fit-content;margin: 10px auto 10px 0;}
   .view-more-right {display:block;width: fit-content;margin: 10px 0 10px auto;}

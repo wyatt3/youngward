@@ -22,8 +22,16 @@ class UserController extends Controller
 
     public function postCreate(Request $request) {
       $request->validate([
-        ''
+        'name' => 'required',
+        'email' => 'required',
         ]);
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'role' => $request->role ? 'admin' : 'user',
+            'password' => Hash::make("YoungWard"),
+        ]);
+        return redirect()->route('users.index')->with('message', 'User Created.');
     }
 
     public function getUpdate($id) {
