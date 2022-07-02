@@ -19,7 +19,7 @@
                 <td>{{ $user->email }}</td>
                 <td class="text-capitalize">{{ $user->role }}</td>
                 <td><a href="{{ route('users.edit', ['id' => $user->id]) }}" class="btn btn-warning text-white">Edit</a></td>
-                <td><a href="{{ route('users.delete', ['id' => $user->id]) }}" onclick="confirm()" class="btn btn-danger {{ Auth::user() == $user ? 'disabled' : ''}}">{{ Auth::user() == $user ? 'Current User' : 'Remove' }}</a></td>
+                <td><a href="{{ route('users.delete', ['id' => $user->id]) }}" onclick="confirm('Are you sure you want to remove this user?')" class="btn btn-danger {{ Auth::user() == $user ? 'disabled' : ''}}">{{ Auth::user() == $user ? 'Current User' : 'Remove' }}</a></td>
             </tr>
         @endforeach
     </table>
