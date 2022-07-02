@@ -73,6 +73,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('update', 'MediaController@updateHeader')->name('media.update');
     Route::post('delete', 'MediaController@delete')->name('media.delete');
   });
+  Route::post('updateOpener', 'MediaController@updateOpener')->name('opener.update');
 });
 
 Auth::routes(['register' => 'false']);

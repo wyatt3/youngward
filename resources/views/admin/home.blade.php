@@ -34,6 +34,15 @@
         <label class="mt-3">Replace Home Page Header:</label>
         <input type="file" name="file" required class="file-upload form-control mt-1">
     </form>
+    <h3 class="mt-5 mb-3">Home Page Featured Content</h3>
+    <form method="POST" action="{{ route('opener.update') }}">
+        @csrf
+        <textarea class="form-control mb-2" name="content" rows="5">{{ $opener->content }}</textarea>
+        <input class="btn btn-success mb-3" type="submit" value="Update">
+    </form>
+    <?php $id = $media->id;$type = 'HomePageModule'?>
+    @include('partials.admin.media')
+    @include('partials.admin.mediaModal')
 </div>
 
 <script>

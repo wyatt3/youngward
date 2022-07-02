@@ -35,7 +35,16 @@
     <h1>Featured Content</h1>
     <div class="featured-content-container">
         @foreach($media as $img)
-        <img src="{{ $img->path }}">
+        <?php $mime = mime_content_type('storage/img/' . $img->path);?>
+        <div>
+            @if(strstr($mime, "video/"))
+            <video controls>
+                <source src="{{ '/storage/img/' . $img->path }}">
+            </video>
+            @elseif(strstr($mime, "image/"))
+            <img src="{{ '/storage/img/' . $img->path }}">
+            @endif
+        </div>
         @endforeach
     </div>
     {{$media->links()}}

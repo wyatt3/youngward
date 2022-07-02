@@ -36,6 +36,14 @@ class Controller extends BaseController
         $homeHeader = NavPage::where('name' , 'Home')->first()->media;
         $announcementHeader = NavPage::where('name', 'Announcements')->first()->media;
         $activityHeader = NavPage::where('name', 'Ward Activities')->first()->media;
-        return view('admin.home', ['homeHeader' => $homeHeader, 'announcementHeader' => $announcementHeader, 'activityHeader' => $activityHeader]);
+        $opener = HomePageModule::where('name', 'opener')->first();
+        $media = HomePageModule::where('name', 'media')->first();
+        return view('admin.home', [
+            'homeHeader' => $homeHeader, 
+            'announcementHeader' => $announcementHeader, 
+            'activityHeader' => $activityHeader,
+            'opener' => $opener,
+            'media' => $media,
+        ]);
     }
 }
