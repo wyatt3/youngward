@@ -2,11 +2,11 @@
 
 @section('content')
 <?php $type = "Announcement";$id = $announcement->id; ?>
-<div class="container">
+<div class="container my-4">
     <div class="row">
         <div class="col-sm-12 col-md-8">
             <div class="container">
-                <h1 class="my-3">Edit Announcement</h1>
+                <h1 class="mt-5 mb-3">Edit Announcement</h1>
                 @if ($errors->any())
                     <ul class="text-danger">
                         @foreach ($errors->all() as $error)

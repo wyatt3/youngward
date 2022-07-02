@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Announcement;
 use App\Media;
+use App\NavPage;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class AnnouncementController extends Controller
 {
@@ -15,20 +17,23 @@ class AnnouncementController extends Controller
         $_31DaysAgo = new Carbon(date('Y-m-d', strtotime('-31 days')));
         $announcements = Announcement::whereBetween('created_at', [$_30DaysAgo, $today])->get();
         $old_announcements = Announcement::whereBetween('created_at', ['0001-01-01 00:00:00', $_31DaysAgo])->count();
-        return view('announcements.index', ['announcements' => $announcements, 'show_old_button' => $old_announcements > 0]);
+        $page = NavPage::where('name', 'Announcements')->first();
+        
+        return view('announcements.index', ['announcements' => $announcements, 'show_old_button' => $old_announcements > 0, 'page' => $page]);
     }
 
     public function getPast() {
         $_31DaysAgo = new Carbon(date('Y-m-d', strtotime('-31 days')));
         $announcements = Announcement::whereBetween('created_at', ['0001-01-01 00:00:00', $_31DaysAgo])->simplePaginate(25);
+        $page = NavPage::where('name', 'Announcements')->first();
 
         return view('announcements.old', ['announcements' => $announcements]);
     }
 
     public function getAdminIndex() {
         $announcements = Announcement::all();
-
-        return view('admin.announcements.index', ['announcements' => $announcements]);
+        $page = NavPage::where('name', 'Announcements')->first();
+        return view('admin.announcements.index', ['announcements' => $announcements, 'page' => $page]);
     }
 
     public function getAdminCreate() {
@@ -79,6 +84,10 @@ class AnnouncementController extends Controller
 
     public function getAdminDelete($id) {
         $announcement = Announcement::find($id);
+        foreach($announcement->media as $media) {
+            Storage::delete("public/img/{$media->path}");
+            $media->delete();
+        }
         $announcement->delete();
 
         return redirect()->route('announcements.admin.index')->with('message', 'Announcement deleted!');

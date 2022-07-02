@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Activity;
 use App\Media;
+use App\NavPage;
+use Illuminate\Support\Facades\Storage;
 
 class ActivityController extends Controller
 {
@@ -12,13 +14,15 @@ class ActivityController extends Controller
         $today = date('Y-m-d');
         $activities = Activity::where('date', '>=', $today)->get();
         $old_activities = Activity::where('date', '<', $today)->count();
-        return view('activities.index', ['activities' => $activities, 'show_old_button' => $old_activities > 0]);
+        $page = NavPage::where('name', 'Ward Activities')->first();
+        return view('activities.index', ['activities' => $activities, 'show_old_button' => $old_activities > 0, 'page' => $page]);
     }
 
     public function getPast() {
         $today = date('Y-m-d');
         $old_activities = Activity::where('date', '<', $today)->orderBy('date', 'desc')->get();
-        return view('activities.old', ['activities' => $old_activities]);
+        $page = NavPage::where('name', 'Ward Activities')->first();
+        return view('activities.old', ['activities' => $old_activities, 'page' => $page]);
     }
 
     public function getShow($activity_id) {
@@ -27,8 +31,9 @@ class ActivityController extends Controller
 
     public function getAdminIndex() {
         $activities = Activity::all();
+        $page = NavPage::where('name', 'Ward Activities')->first();
 
-        return view('admin.activities.index', ['activities' => $activities]);
+        return view('admin.activities.index', ['activities' => $activities, 'page' => $page]);
     }
 
     public function getAdminCreate() {
@@ -84,8 +89,11 @@ class ActivityController extends Controller
 
     public function getAdminDelete($id) {
         $activity = Activity::find($id);
+        foreach($activity->media as $media) {
+            Storage::delete("public/img/{$media->path}");
+            $media->delete();
+        }
         $activity->delete();
-
         return redirect()->route('activities.admin.index')->with('message', 'Activity deleted!');
     }
 }

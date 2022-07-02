@@ -70,8 +70,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
   Route::group(['prefix' => 'media'], function() {
     Route::post('add', 'MediaController@add')->name('media.add');
+    Route::post('update', 'MediaController@updateHeader')->name('media.update');
     Route::post('delete', 'MediaController@delete')->name('media.delete');
   });
+  Route::post('updateOpener', 'MediaController@updateOpener')->name('opener.update');
 });
 
 Auth::routes(['register' => 'false']);

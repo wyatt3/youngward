@@ -1,5 +1,5 @@
 <?php
-
+namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 
 use App\NavPage as Page;
@@ -13,24 +13,24 @@ class NavPagesTableSeeder extends Seeder
      */
     public function run()
     {
-        $page = new Page([
+        Page::create([
             'name' => 'Ward Activities',
             'route' => 'activities',
             'order' => '2',
         ]);
-        $page->save();
-        $page = new Page([
+        Page::create([
             'name' => 'Announcements',
             'route' => 'announcements',
             'order' => '1',
         ]);
-        $page->save();
-        $page = new Page([
+        Page::create([
             'name' => 'ChurchofJesusChrist.org',
             'href' => 'https://www.churchofjesuschrist.org',
             'order' => '3',
         ]);
-        $page->save();
-        
+        Page::create([
+            'name' => 'Home',
+            'order' => '4',
+        ]);
     }
 }
