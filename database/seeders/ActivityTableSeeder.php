@@ -14,7 +14,7 @@ class ActivityTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 4;$i <= 4;$i++) {
+        for($i = 4;$i <= 8;$i++) {
             $event = new Activity([
                 'title' => 'title' . $i,
                 'date' => "2022-{$i}-15",
